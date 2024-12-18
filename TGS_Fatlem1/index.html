@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="iconmhs.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button>Log Out</button>
+        </header>
+
+        <aside>
+            <h1>Admin</h1>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-user-graduate"></i> Mahasiswa</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#"><i class="fas fa-user-shield"></i> Admin</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="content">
+            <h2>Daftar Mahasiswa</h2>
+            <button onclick="openModal('add')">Tambah Mahasiswa</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="student-list">
+                    <tr data-nim="A11.2022.14666">
+                        <td>1.</td>
+                        <td>A11.2022.14666</td>
+                        <td>JokoKopling</td>
+                        <td>
+                            <button onclick="openEditModal('A11.2022.14666', 'JokoKopling')">Edit</button>
+                            <button onclick="openDeleteConfirm('A11.2022.14666')">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr data-nim="A11.2022.14667">
+                        <td>2.</td>
+                        <td>A11.2022.14667</td>
+                        <td>Suskulez</td>
+                        <td>
+                            <button onclick="openEditModal('A11.2022.14667', 'Suskulez')">Edit</button>
+                            <button onclick="openDeleteConfirm('A11.2022.14667')">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            &copy; 2024 Fatlem.
+        </footer>
+    </div>
+    <div class="modal" id="modalForm">
+        <div class="modal-content">
+            <h3 id="modalTitle">Tambah Mahasiswa</h3>
+            <label for="nim">NIM</label>
+            <input type="text" id="nim" placeholder="Masukkan NIM"><br><br>
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" placeholder="Masukkan Nama"><br><br>
+            <button onclick="saveStudent()">Simpan</button>
+            <button onclick="closeModal()">Batal</button>
+        </div>
+    </div>
+    <div class="confirm-delete" id="deleteConfirm">
+        <div class="confirm-delete-content">
+            <p>Yakin Sirr Menghapus Data Ini?</p>
+            <button onclick="confirmDelete()">Ya</button>
+            <button onclick="closeDeleteConfirm()">Tidak</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

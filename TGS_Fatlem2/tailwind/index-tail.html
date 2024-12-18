@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="iconmhs.png">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="bg-indigo-900 w-64 text-white">
+            <div class="p-4">
+                <h2 class="font-bold text-2xl">Admin Panel</h2>
+                <nav class="mt-4 ml-4">
+                    <ul>
+                        <li class="mb-4 flex items-center">
+                            <i data-feather="home" class="mr-2"></i>
+                            <a href="#" class="hover:underline">Dashboard</a>
+                        </li>
+                        <li class="mb-4 flex items-center">
+                            <i data-feather="users" class="mr-2"></i>
+                            <a href="#" class="hover:underline">Mahasiswa</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="settings" class="mr-2"></i>
+                            <a href="#" class="hover:underline">Settings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <div class="flex flex-col flex-1">
+            <!-- Header -->
+            <header class="bg-orange-200 p-4 flex justify-end">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">Logout</button>
+            </header>
+
+            <!-- Main -->
+            <main class="bg-white p-6 flex-grow">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h2 class="font-bold text-xl mb-4">Daftar Mahasiswa</h2>
+                    <button id="addStudentBtn" class="bg-green-500 px-4 py-2 rounded-xl text-white mb-4">Tambah Mahasiswa</button>
+                    <table class="min-w-full table-auto" id="studentTable">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="border px-4 py-2">No.</th>
+                                <th class="border px-4 py-2">NIM</th>
+                                <th class="border px-4 py-2">Nama</th>
+                                <th class="border px-4 py-2">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border px-4 py-2">1.</td>
+                                <td class="border px-4 py-2">A11.2022.1424</td>
+                                <td class="border px-4 py-2">Faathir El Tasleem</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-yellow-500 text-white px-4 py-2 rounded editBtn">Edit</button>
+                                    <button class="bg-red-500 text-white px-4 py-2 rounded deleteBtn">Hapus</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">2.</td>
+                                <td class="border px-4 py-2">A11.2022.14719</td>
+                                <td class="border px-4 py-2">Sikimaku Zakura</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-yellow-500 text-white px-4 py-2 rounded editBtn">Edit</button>
+                                    <button class="bg-red-500 text-white px-4 py-2 rounded deleteBtn">Hapus</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">3.</td>
+                                <td class="border px-4 py-2">A11.2022.14599</td>
+                                <td class="border px-4 py-2">Dimasukin</td>
+                                <td class="border px-4 py-2">
+                                    <button class="bg-yellow-500 text-white px-4 py-2 rounded editBtn">Edit</button>
+                                    <button class="bg-red-500 text-white px-4 py-2 rounded deleteBtn">Hapus</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-red-500 text-center text-white p-4">
+                &copy; 2024 Fatlem Admin
+            </footer>
+        </div>
+    </div>
+
+    <!-- Tambah/Edit Mahasiswa -->
+    <div id="studentModal" class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
+        <div class="bg-white w-1/3 p-6 rounded-lg">
+            <h2 class="text-xl font-bold mb-4" id="modalTitle">Tambah Mahasiswa</h2>
+            <form id="studentForm">
+                <div class="mb-4">
+                    <label for="nim" class="block font-semibold mb-1">NIM</label>
+                    <input type="text" id="nim" class="w-full border px-4 py-2" required>
+                </div>
+                <div class="mb-4">
+                    <label for="nama" class="block font-semibold mb-1">Nama</label>
+                    <input type="text" id="nama" class="w-full border px-4 py-2" required>
+                </div>
+                <div class="flex justify-end">
+                    <button type="button" class="bg-gray-400 text-white px-4 py-2 rounded mr-2" onclick="closeModal()">Batal</button>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+     <!-- JawaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
